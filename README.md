@@ -1,7 +1,4 @@
-
-# Give me an readme file for the project for the github repository
-
-```markdown
+```
 # Flask Facial Recognition Web App
 
 A web-based facial recognition system built with Python, Flask, OpenCV, and face_recognition. Upload images, manage identities, and perform real-time face recognition using your webcam—all from your browser.
@@ -15,6 +12,13 @@ A web-based facial recognition system built with Python, Flask, OpenCV, and face
 - Database-backed image and identity management (SQLite with SQLAlchemy)
 - Optimized face encoding for faster recognition
 - Easy deployment to Vercel or other cloud platforms
+
+---
+
+## Demo
+
+> **Note:** For privacy and resource reasons, a live demo is not provided.  
+> You can run the app locally or deploy to Vercel.
 
 ---
 
