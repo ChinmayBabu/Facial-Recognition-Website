@@ -1,142 +1,96 @@
-```
-# Flask Facial Recognition Web App
 
-A web-based facial recognition system built with Python, Flask, OpenCV, and face_recognition. Upload images, manage identities, and perform real-time face recognition using your webcam—all from your browser.
+# Facial Recognition Website
 
----
+A web-based facial recognition system that detects and recognizes faces in real-time using a webcam. Built with **Python**, **Flask**, and **OpenCV**, this project demonstrates how computer vision can be integrated into a web interface for facial authentication or surveillance purposes.
 
-## Features
+## 🔍 Features
 
-- Upload and manage face images for different identities
-- Real-time face recognition using your webcam
-- Database-backed image and identity management (SQLite with SQLAlchemy)
-- Optimized face encoding for faster recognition
-- Easy deployment to Vercel or other cloud platforms
+- Real-time face detection using webcam
+- Face recognition from stored dataset
+- Option to add new users to dataset
+- Organized project structure with Flask backend
+- HTML/CSS based frontend (can be upgraded to React)
 
----
-
-## Demo
-
-> **Note:** For privacy and resource reasons, a live demo is not provided.  
-> You can run the app locally or deploy to Vercel.
-
----
-
-## Getting Started
-
-### 1. Clone the Repository
+## 📂 Project Structure
 
 ```
-
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
-
+Facial-Recognition-Website/
+├── static/                 # CSS, JS, and images
+├── templates/              # HTML files
+├── dataset/                # Stored user images
+├── test/                   # Test images for recognition
+├── app.py                  # Flask backend
+├── camera.py               # Webcam capture logic
+├── face_train.py           # Encodes faces in dataset
+├── face_recog.py           # Face recognition logic
+├── requirements.txt        # Python dependencies
 ```
 
-### 2. Install Dependencies
+## 🚀 Getting Started
 
-Create a virtual environment (recommended):
+### Prerequisites
 
-```
+- Python 3.10+
+- `pip` for installing dependencies
+- Webcam
 
-python -m venv venv
-source venv/bin/activate  \# On Windows: venv\Scripts\activate
+### Installation
 
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ChinmayBabu/Facial-Recognition-Website.git
+   cd Facial-Recognition-Website
+   ```
 
-Install Python dependencies:
+2. **Create a virtual environment (recommended)**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-```
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-pip install -r requirements.txt
+4. **Prepare the dataset**
+   - Add folders with user images inside `dataset/`, each folder name should be the person's name.
 
-```
+5. **Train the face data**
+   ```bash
+   python face_train.py
+   ```
 
-### 3. Project Structure
+6. **Run the Flask app**
+   ```bash
+   python app.py
+   ```
 
-```
+7. **Access the website**
+   - Go to `http://127.0.0.1:5000` in your browser
 
-api/
-├── index.py          \# Main Flask app
-├── static/           \# Uploaded images and static assets
-└── templates/        \# HTML templates
-requirements.txt
-vercel.json
+## 📸 How It Works
 
-```
+- The webcam captures a frame.
+- Face encodings are compared with the pre-trained encodings.
+- If a match is found, the name is displayed on the screen.
+- Unknown faces can be flagged or ignored based on configuration.
 
-### 4. Running Locally
+## 🛠️ Technologies Used
 
-```
-
-cd api
-python index.py
-
-```
-
-Visit [http://localhost:5000](http://localhost:5000) in your browser.
-
----
-
-## Deployment
-
-### Deploying to Vercel
-
-1. **Remove** or comment out any `app.run()` lines in your Flask code.
-2. Ensure your Flask app is in `api/index.py`.
-3. Add a `vercel.json` file at the root:
-
-    ```
-    {
-      "rewrites": [
-        { "source": "/(.*)", "destination": "/api/index" }
-      ]
-    }
-    ```
-
-4. Push your code to GitHub.
-5. Connect your repository to Vercel and deploy.
-
----
-
-## Usage
-
-- **Home Page:** View all uploaded identities and images.
-- **Upload Page:** Add new faces by uploading images and specifying a name.
-- **Webcam Page:** Start the webcam and perform real-time face recognition.
-
----
-
-## Prerequisites
-
-- Python 3.7+
-- pip
-- [face_recognition](https://github.com/ageitgey/face_recognition)
-- OpenCV (`opencv-python`)
+- Python
 - Flask
-- SQLAlchemy
+- OpenCV
+- face_recognition
+- HTML, CSS
 
-All dependencies are listed in `requirements.txt`.
+## 🧠 Future Enhancements
 
----
+- React frontend for better UI
+- Face registration via web UI
+- Database integration (e.g., SQLite/PostgreSQL)
+- Access logs for recognized faces
 
-## Security & Production Notes
+## 📝 License
 
-- Do **not** use `app.run(debug=True)` in production.
-- Use a WSGI server (e.g., Gunicorn) for non-serverless deployments.
-- Remove any debug or test routes before deploying.
-- For Vercel, do **not** specify host or port in your Flask code.
-- Store sensitive configuration in environment variables.
-
----
-
-## Acknowledgments
-
-- [face_recognition](https://github.com/ageitgey/face_recognition)
-- [OpenCV](https://opencv.org/)
-- Flask, SQLAlchemy, and the Python community
-
----
-
-
-
+This project is open-source under the MIT License.
