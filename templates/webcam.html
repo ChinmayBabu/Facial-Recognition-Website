@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Webcam - Facial Recognition App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-light">
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Webcam</a>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h1>Webcam Face Recognition</h1>
+      <p class="lead">It may take a few minutes to load ...</p>
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <div class="mb-4">
+            <!-- Flask video feed stream -->
+            <img
+              id="videoFeed"
+              src="{{ url_for('video_feed') }}"
+              class="img-fluid rounded border"
+              style="max-width: 100%; height: auto; min-height: 360px; background: #222;"
+              alt="Webcam Video Feed"
+            />
+          </div>
+          <a href="{{ url_for('index') }}" class="btn btn-outline-primary">Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-5 text-center">
+      <p>&copy; 2025 Facial Recognition App</p>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
